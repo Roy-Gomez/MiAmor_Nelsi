@@ -79,7 +79,7 @@
   .paragraph:nth-child(4){animation:fadeUp 1s 2.1s both;}
   .highlight { color:var(--rose);font-weight:400; }
 
-  /* ── NEW: poem block ── */
+  /* ── poem block ── */
   .poem-block {
     margin: 38px 0 10px;
     padding: 32px 44px;
@@ -107,6 +107,44 @@
   }
   .poem-line .highlight { color:var(--rose); font-weight:400; }
 
+  /* ── Tercer poema — palabras especiales ── */
+  /* palabras en cursiva + color ámbar: en, agosto, nos, vemos */
+  .poem-italic-word {
+    color: #b07d20;
+    font-style: italic;
+    font-weight: 500;
+  }
+  /* palabras en MAYÚSCULA + color rosa: TE, AMO, MI, PRINCESA */
+  .poem-upper-word {
+    color: var(--rose);
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  /* wrapper del tercer poema */
+  .poem-block-three {
+    margin: 10px 0 18px;
+    padding: 32px 44px;
+    background: linear-gradient(135deg, rgba(240,215,255,.50), rgba(255,230,240,.50));
+    border-left: 3px solid var(--dahlia-purple);
+    border-radius: 0 18px 18px 0;
+    position: relative;
+    opacity:0; animation: fadeUp 1s 3.2s both;
+  }
+  .poem-block-three::before {
+    content: '❝';
+    position:absolute;top:-14px;left:18px;
+    font-size:3.2rem;color:var(--dahlia-purple);opacity:.22;
+    font-family:'Playfair Display',serif;
+    line-height:1;
+  }
+  .poem-block-three .poem-line {
+    font-size:1.18rem;
+    line-height:2.2;
+  }
+
   .otter-section {
     display:flex;align-items:center;justify-content:center;gap:24px;
     margin:38px 0 28px;opacity:0;animation:fadeUp 1s 2.4s both;flex-wrap:wrap;
@@ -127,7 +165,7 @@
   }
   .otter-note-sub { font-size:.92rem;color:var(--dahlia-purple);margin-top:6px;font-style:italic; }
 
-  /* ── NEW: penguin-otter section ── */
+  /* ── penguin-otter section ── */
   .penguin-section {
     display:flex; align-items:center; justify-content:center; gap:20px;
     margin: 10px 0 36px; flex-wrap:wrap;
@@ -157,14 +195,14 @@
   }
   .distance-note .km { color:var(--rose); font-size:1.5rem; font-family:'Dancing Script',cursive; display:block; margin-top:6px; }
 
-  .firma { text-align:right;padding:10px 70px 20px;opacity:0;animation:fadeUp 1s 2.9s both; }
+  .firma { text-align:right;padding:10px 70px 20px;opacity:0;animation:fadeUp 1s 3.6s both; }
   .firma-text { font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--dahlia-purple); }
   .firma-sub  { font-size:.95rem;color:var(--rose);font-style:italic;letter-spacing:1px; }
   .footer-strip { width:100%;padding:0;margin-top:10px; }
   @media(max-width:600px){
     .letter-body,.firma{padding-left:26px;padding-right:26px;}
     .divider{padding:0 26px;} .title-name{font-size:3.2rem;} .header-floral{height:250px;}
-    .poem-block{padding:22px 20px;}
+    .poem-block,.poem-block-three{padding:22px 20px;}
   }
 </style>
 </head>
@@ -353,7 +391,7 @@
   <p class="paragraph">Así como la Luna gira alrededor de la Tierra, mi amor por ti se mantiene constante, y es capaz con la <span class="highlight">atracción gravitacional agitar mucho dentro de mí</span>, como las mareas.</p>
   <p class="paragraph">Y aunque el tiempo pase de distintas formas, como lo explicó Albert Einstein con la relatividad, podrá el tiempo pasar horas o miles de años, como los viajes a velocidad luz… <span class="highlight">un amor relativo que no importa cómo se mueve el tiempo</span>. No importa si los días pasan rápido o lento, mi amor sigue siendo el mismo y siempre encuentra la manera de quedarse contigo.</p>
 
-  <!-- ★ POEM ★ -->
+  <!-- ★ POEM 1 ★ -->
   <div class="poem-block">
     <span class="poem-line">Ya que ahora no puedo besarte, <span class="highlight">voy a pensarte.</span></span>
     <span class="poem-line">Ya que ahora no puedo tocarte, <span class="highlight">voy a soñarte.</span></span>
@@ -472,88 +510,80 @@
   <!-- ★★ PENGUIN hugging OTTER SVG ★★ -->
   <svg width="300" height="230" viewBox="0 0 300 230"
        style="filter:drop-shadow(0 8px 28px rgba(80,40,90,.22))">
-
-    <!-- Ground shadow -->
     <ellipse cx="150" cy="222" rx="90" ry="11" fill="rgba(100,60,100,.14)"/>
-
-    <!-- ════ OTTER (right side) ════ -->
-    <!-- Otter tail -->
     <path d="M210 195 Q238 210 228 202" stroke="#6a3a1e" stroke-width="14" fill="none" stroke-linecap="round"/>
-    <!-- Otter body -->
     <ellipse cx="195" cy="153" rx="44" ry="42" fill="#9a6840"/>
-    <!-- Otter belly -->
     <ellipse cx="195" cy="159" rx="29" ry="31" fill="#d0a268"/>
-    <!-- Otter right arm (resting) -->
     <path d="M234 148 Q252 138 248 122" stroke="#7a4828" stroke-width="13" fill="none" stroke-linecap="round"/>
     <ellipse cx="248" cy="118" rx="14" ry="10" fill="#5e3010"/>
-    <!-- Otter left arm wrapping around penguin (going left) -->
     <path d="M156 148 Q128 140 118 152" stroke="#7a4828" stroke-width="13" fill="none" stroke-linecap="round"/>
-    <!-- Otter head -->
     <ellipse cx="195" cy="85" rx="38" ry="36" fill="#9a6840"/>
-    <!-- Otter ears -->
     <ellipse cx="162" cy="58" rx="16" ry="13" fill="#7a4828"/>
     <ellipse cx="162" cy="58" rx="10" ry="8"  fill="#c07858"/>
     <ellipse cx="228" cy="58" rx="16" ry="13" fill="#7a4828"/>
     <ellipse cx="228" cy="58" rx="10" ry="8"  fill="#c07858"/>
-    <!-- Otter muzzle -->
     <ellipse cx="195" cy="94" rx="22" ry="19" fill="#c09070"/>
-    <!-- Otter eyes — happy squint (being hugged!) -->
     <path d="M178,78 Q187,69 196,78" stroke="#140808" stroke-width="4.5" fill="none" stroke-linecap="round"/>
     <path d="M194,78 Q203,69 212,78" stroke="#140808" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <!-- Otter blush -->
     <ellipse cx="170" cy="90" rx="10" ry="7" fill="#e06888" opacity=".32"/>
     <ellipse cx="220" cy="90" rx="10" ry="7" fill="#e06888" opacity=".32"/>
-    <!-- Otter nose -->
     <ellipse cx="195" cy="94" rx="7"  ry="6"  fill="#3a1208"/>
     <ellipse cx="195" cy="92" rx="4.5" ry="3" fill="#6a2818" opacity=".75"/>
-    <!-- Otter big smile -->
     <path d="M183 103 Q195 116 207 103" stroke="#3a1208" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Otter feet -->
     <ellipse cx="178" cy="197" rx="18" ry="9" fill="#5e3010" transform="rotate(-12,178,197)"/>
     <ellipse cx="212" cy="197" rx="18" ry="9" fill="#5e3010" transform="rotate(12,212,197)"/>
-
-    <!-- ════ PENGUIN (left side, hugging otter) ════ -->
-    <!-- Penguin body — black oval -->
     <ellipse cx="105" cy="148" rx="42" ry="50" fill="#1a1a2e"/>
-    <!-- Penguin white belly -->
     <ellipse cx="105" cy="155" rx="27" ry="36" fill="#f5f0e8"/>
-    <!-- Penguin right flipper wrapping around otter -->
     <path d="M144 138 Q166 130 172 148" stroke="#1a1a2e" stroke-width="18" fill="none" stroke-linecap="round"/>
     <ellipse cx="173" cy="152" rx="14" ry="9" fill="#1a1a2e"/>
-    <!-- Penguin left flipper -->
     <path d="M66 138 Q44 130 46 118" stroke="#1a1a2e" stroke-width="16" fill="none" stroke-linecap="round"/>
     <ellipse cx="45" cy="115" rx="13" ry="9" fill="#1a1a2e"/>
-    <!-- Penguin head -->
     <circle cx="105" cy="88" r="34" fill="#1a1a2e"/>
-    <!-- Penguin white face patch -->
     <ellipse cx="105" cy="92" rx="22" ry="20" fill="#f5f0e8"/>
-    <!-- Penguin eyes — happy closed curves -->
     <path d="M92,84 Q99,76 106,84" stroke="#1a1a2e" stroke-width="4" fill="none" stroke-linecap="round"/>
     <path d="M104,84 Q111,76 118,84" stroke="#1a1a2e" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <!-- Penguin blush -->
     <ellipse cx="88"  cy="96" rx="10" ry="7" fill="#e07090" opacity=".35"/>
     <ellipse cx="122" cy="96" rx="10" ry="7" fill="#e07090" opacity=".35"/>
-    <!-- Penguin beak -->
     <path d="M99,102 Q105,112 111,102 Q105,108 99,102Z" fill="#e8920a"/>
-    <!-- Penguin feet — orange -->
     <ellipse cx="90"  cy="198" rx="17" ry="8" fill="#e8920a" transform="rotate(-10,90,198)"/>
     <ellipse cx="120" cy="198" rx="17" ry="8" fill="#e8920a" transform="rotate(10,120,198)"/>
-    <!-- Penguin little bowtie / scarf hint — rose colored -->
     <ellipse cx="105" cy="114" rx="9" ry="5" fill="#c9506a" opacity=".85"/>
     <ellipse cx="98"  cy="114" rx="7" ry="4" fill="#a83050" opacity=".8" transform="rotate(-18,98,114)"/>
     <ellipse cx="112" cy="114" rx="7" ry="4" fill="#a83050" opacity=".8" transform="rotate(18,112,114)"/>
     <circle  cx="105" cy="114" r="3.5" fill="#e06070"/>
-
-    <!-- ════ HEARTS floating above them ════ -->
     <path d="M148,42 C148,42 139,30 139,37 C139,44 148,50 148,50 C148,50 157,44 157,37 C157,30 148,42 148,42Z" fill="#c9506a" opacity=".9"/>
     <path d="M132,22 C132,22 125,13 125,18 C125,24 132,29 132,29 C132,29 139,24 139,18 C139,13 132,22 132,22Z" fill="#da6080" opacity=".75"/>
     <path d="M164,28 C164,28 158,20 158,25 C158,30 164,34 164,34 C164,34 170,30 170,25 C170,20 164,28 164,28Z" fill="#e888a8" opacity=".65"/>
-    <!-- Sparkle stars -->
     <polygon points="122,8 123.5,13 129,13 124.5,16.5 126,21 122,18 118,21 119.5,16.5 115,13 120.5,13" fill="#c9a45a" opacity=".88"/>
     <circle cx="168" cy="12" r="3.5" fill="#e8d080" opacity=".7"/>
     <circle cx="140" cy="6"  r="2.5" fill="#f0e090" opacity=".6"/>
   </svg>
 
+</div>
+
+<!-- ══════════════ DIVIDER 3 ══════════════ -->
+<div class="divider" style="opacity:1; animation:fadeUp 1s 3.0s both; margin-top:10px;">
+  <div class="divider-line"></div>
+  <span class="divider-heart">✦ 🌙 ✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- ══════════════ TERCER POEMA ══════════════ -->
+<div style="padding:0 70px; position:relative; z-index:2;">
+  <div class="poem-block-three">
+    <span class="poem-line">Entre páginas te volví a encontrar sin buscar,</span>
+    <span class="poem-line">como si el destino ya hablara de <span class="poem-italic-word">nos</span> antes de entenderlo…, y ya fueras mi <span class="poem-upper-word">PRINCESA</span>.</span>
+    <span class="poem-line">&nbsp;</span>
+    <span class="poem-line">No sé en qué momento perdí tu dirección,</span>
+    <span class="poem-line">pero ahora <span class="poem-italic-word">agosto</span> me devuelve a ti, y en cada latido te <span class="poem-upper-word">AMO</span>.</span>
+    <span class="poem-line">&nbsp;</span>
+    <span class="poem-line">Hay una frontera de palabras no dichas entre tus labios y mis labios,</span>
+    <span class="poem-line">como encuentros donde apenas <span class="poem-italic-word">vemos</span> lo que sentimos, y todo vive en <span class="poem-upper-word">MI</span> pensamiento.</span>
+    <span class="poem-line">&nbsp;</span>
+    <span class="poem-line">Y si el tiempo insistiera en separarnos,</span>
+    <span class="poem-line">me bastaría con ver las estrellas de tu rostro,</span>
+    <span class="poem-line">porque todo empezó <span class="poem-italic-word">en</span> una banca, una noche <span class="poem-upper-word">TE</span> encontraré.</span>
+  </div>
 </div>
 
 <!-- Firma -->
